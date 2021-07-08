@@ -1,0 +1,15 @@
+const express = require('express')
+const app = express()
+const mongoose=require('mongoose')
+const bcrypt=require('bcrypt')
+const authRoute=require("./auth.js")
+app.use('/api/auth',authRoute)
+app.use(express.json())
+mongoose.connect("mongodb://localhost:27017/ELearningDB",{useNewUrlParser:true,useUnifiedTopology:true})
+mongoose.set('useCreateIndex',true)
+app.get("/",async(req,res)=>{
+    res.send("Working..")
+})
+app.listen(8000,()=>{
+console.log("Connected to Server")
+})

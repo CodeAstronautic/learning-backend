@@ -5,7 +5,7 @@ const passport = require("passport");
 const bcrypt = require('bcryptjs');
 
 //user modal
-const User = require("./modals/User");
+const User = require("./models/User");
 
 const app = express();
 
@@ -126,7 +126,7 @@ app.post("/login", async (req, res) => {
             //Login successfull
             res.send("User logged in Successfully")
         }
-        
+
     }
 })
 app.listen(5000, console.log("server started running"));

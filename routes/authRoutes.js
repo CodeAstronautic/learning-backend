@@ -5,4 +5,5 @@ router.post('/register', authController.registerAuth);
 
 router.post('/login', authController.loginAuth);
 
+
 module.exports = router;

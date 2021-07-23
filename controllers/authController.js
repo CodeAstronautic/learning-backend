@@ -75,7 +75,7 @@ exports.loginAuth = async (req, res) => {
         .status(400)
         .json({ status: 'fail', message: 'Invalid password' });
 
-    const token = jwt.sign({ _id: user._id }, 'secretkey');
+    const token = jwt.sign({ _id: user._id }, process.env.TOKEN_SECRET);
     res.header('auth-token', token).send(token);
 
     // res.json({ status: 'success', message: 'Logged In!' });

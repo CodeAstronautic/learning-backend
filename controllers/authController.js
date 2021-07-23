@@ -3,6 +3,7 @@ const jwt = require('jsonwebtoken');
 const User = require('../models/userModel');
 const { registerValidation, loginValidation } = require('../validation');
 
+
 exports.registerAuth = async (req, res) => {
   try {
     const { error } = registerValidation(req.body);
@@ -74,7 +75,7 @@ exports.loginAuth = async (req, res) => {
         .status(400)
         .json({ status: 'fail', message: 'Invalid password' });
 
-    const token = jwt.sign({ _id: user._id }, process.env.TOKEN_SECRET);
+    const token = jwt.sign({ _id: user._id }, 'secretkey');
     res.header('auth-token', token).send(token);
 
     // res.json({ status: 'success', message: 'Logged In!' });
@@ -85,3 +86,5 @@ exports.loginAuth = async (req, res) => {
     });
   }
 };
+
+

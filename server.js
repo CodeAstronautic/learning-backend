@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
 const dotenv = require('dotenv');
+const passport = require('passport');
 
 dotenv.config();
 const app = require('./app');
@@ -18,7 +19,11 @@ const DB = process.env.DATABASE.replace(
   () => console.log('Connected to database successfully!')
 );
 
-const port = 3000 || process.env.PORT;
+app.use(passport.initialize())
+app.use(passport.session())
+
+
+const port = 5000 || process.env.PORT;
 app.listen(port, () => {
   console.log(`Server is running on port: ${port}`);
 });

@@ -3,6 +3,7 @@ const jwt = require('jsonwebtoken');
 const User = require('../models/userModel');
 const { registerValidation, loginValidation } = require('../validation');
 
+
 exports.registerAuth = async (req, res) => {
   try {
     const { error } = registerValidation(req.body);
@@ -85,3 +86,5 @@ exports.loginAuth = async (req, res) => {
     });
   }
 };
+
+

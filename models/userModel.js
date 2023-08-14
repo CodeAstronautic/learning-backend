@@ -22,6 +22,7 @@ const userSchema = new mongoose.Schema({
     required: true,
     max: 1024,
     min: 6,
+    default: ''
   },
   confirmPassword: {
     type: String,
@@ -33,6 +34,9 @@ const userSchema = new mongoose.Schema({
     type: Date,
     default: Date.now,
   },
+  googleId:{
+    type: String,
+  }
 });
 
 module.exports = mongoose.model('User', userSchema);
